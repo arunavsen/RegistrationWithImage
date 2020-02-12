@@ -25,7 +25,7 @@ namespace RegistrationWithImage.Controllers
             {
                 string fileName = Path.GetFileNameWithoutExtension(item.ImageUpload.FileName);
                 string extension = Path.GetExtension(item.ImageUpload.FileName);
-                fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                fileName = fileName + DateTime.Now.ToString("yyyy-MM-dd") + extension;
                 item.PicUrl = fileName;
                 item.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/AppFile/Images"),fileName));
                 db.tblProducts.Add(item);

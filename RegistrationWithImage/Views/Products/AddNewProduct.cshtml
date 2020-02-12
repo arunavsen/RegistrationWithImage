@@ -40,7 +40,7 @@ and save it in database-->
             data: new FormData(formData),
             success: function(result) {
                 alert(result);
-                window.location.href="/Products/AddNewProduct"
+                window.location.href = "/Products/AddNewProduct";
             }
         }
         if ($(formData).attr('enctype') == "multipart/form-data") {
