@@ -9,7 +9,7 @@ namespace RegistrationWithImage.Controllers
     public class ProductsController : Controller
     {
         // GET: Products
-        public ActionResult Index()
+        public ActionResult AddNewProduct()
         {
             return View();
         }
