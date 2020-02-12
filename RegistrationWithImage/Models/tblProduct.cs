@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Web;
+
 namespace RegistrationWithImage.Models
 {
     using System;
@@ -18,5 +20,6 @@ namespace RegistrationWithImage.Models
         public string ProductName { get; set; }
         public decimal Price { get; set; }
         public string PicUrl { get; set; }
+        public HttpPostedFileBase ImageUpload { get; set; }
     }
 }

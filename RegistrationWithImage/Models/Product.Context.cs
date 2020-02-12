@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using RegistrationWithImage.Models;
+
 namespace RegistrationWithImage
 {
     using System;
