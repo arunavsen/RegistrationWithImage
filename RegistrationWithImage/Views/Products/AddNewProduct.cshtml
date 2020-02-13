@@ -3,83 +3,63 @@
     ViewBag.Title = "AddNewProduct";
 }
 
-<h2>Add New Product</h2>
-<div class="container">
-    <div class="col-md-6">
+<div class="card mb-2">
+    <div class="card-header">
+        <h4>Add New Product</h4>
+    </div>
+    <div class="card-body">
         <form id="AddNewProduct"
               enctype="multipart/form-data"
               method="post"
-              onsubmit="return AjaxPost(this)">
+              onsubmit="return AjaxPost(this)" >
 
             <label>Title</label><br />
             <input id="ProductName" name="ProductName"
-                   class="form-control" placeholder="Enter product name" />
+                   class="form-control col-md-12" placeholder="Enter product name" />
 
             <label>Price</label><br />
             <input id="Price" name="Price"
-                   class="form-control" placeholder="Enter product price" />
+                   class="form-control col-md-12" placeholder="Enter product price" />
 
             <label>Upload Image</label><br />
             <input id="ImageUpload" name="ImageUpload"
-                   class="form-control" type="file"/>
-            <br/>
-            <button class="btn btn-success">Add</button>
+                   class="form-control col-md-12" type="file" />
+            <br />
+            <button class="btn btn-success float-right">Add</button>
 
         </form>
     </div>
 </div>
 
 <!----------Product List--------------->
-<div class="container">
-    <h2 class="text-center">Products List</h2>
-    @foreach (var item in Model)
-    {
-        double price = Convert.ToInt32(@item.Price);
-        <div class="col-md-3" style="margin-bottom: 25px">
-            <div class="img-thumbnail">
-                <div class="image" style="margin-bottom: 20px">
-                    <img src="~/AppFile/Images/@item.PicUrl" 
-                         class="image" height="350" width="240"/>
-                </div>
-                <div class="caption" style="border-top: 3px solid black">
-                    <h3><a href="#">@item.ProductName</a></h3>
-                    <h4>@price.ToString("F2")</h4>
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            double price = Convert.ToInt32(@item.Price);
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="~/AppFile/Images/@item.PicUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.ProductName</h5>
+                        <p class="card-text">@price.ToString("F2")</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
-
+        }
+    </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!---Write code for pass form-data from view to controller
 and save it in database-->
 
 <script>
-    function  AjaxPost(formData) {
+    function AjaxPost(formData) {
         var ajaxConfig = {
             type: "post",
             url: "/Products/SaveData",
             data: new FormData(formData),
-            success: function(result) {
+            success: function (result) {
                 alert(result);
                 window.location.href = "/Products/AddNewProduct";
             }
@@ -92,4 +72,3 @@ and save it in database-->
         return false;
     }
 </script>
-
