@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<RegistrationWithImage.Models.tblProduct>
 @{
     ViewBag.Title = "AddNewProduct";
 }
@@ -28,6 +28,47 @@
         </form>
     </div>
 </div>
+
+<!----------Product List--------------->
+<div class="container">
+    <h2 class="text-center">Products List</h2>
+    @foreach (var item in Model)
+    {
+        double price = Convert.ToInt32(@item.Price);
+        <div class="col-md-3" style="margin-bottom: 25px">
+            <div class="img-thumbnail">
+                <div class="image" style="margin-bottom: 20px">
+                    <img src="~/AppFile/Images/@item.PicUrl" 
+                         class="image" height="350" width="240"/>
+                </div>
+                <div class="caption" style="border-top: 3px solid black">
+                    <h3><a href="#">@item.ProductName</a></h3>
+                    <h4>@price.ToString("F2")</h4>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!---Write code for pass form-data from view to controller
 and save it in database-->

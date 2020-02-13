@@ -14,7 +14,7 @@ namespace RegistrationWithImage.Controllers
         // GET: Products
         public ActionResult AddNewProduct()
         {
-            return View();
+            return View(db.tblProducts.ToList());
         }
 
         public ActionResult SaveData(tblProduct item)
